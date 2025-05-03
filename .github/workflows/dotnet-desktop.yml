@@ -25,8 +25,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Build
-      run: msbuild UABEAvalonia.sln /restore /p:Configuration=Release
-    
+      run: msbuild UABEAvalonia.sln /restore /p:Configuration=Release /p:SelfContained=true
     - name: Remove unused platforms
       run: Get-ChildItem -Path "UABEAvalonia\bin\Release\net6.0\runtimes" -Directory | Where-Object { $_.Name -notin @("win-x64", "win7-x64", "win") } | Remove-Item -Recurse -Force
       
