@@ -25,7 +25,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Build
-      run: msbuild UABEAvalonia.sln /t:Publish /p:RuntimeIdentifier=win-x64 /p:Configuration=Release /p:SelfContained=true
+      run: msbuild UABEAvalonia.sln /restore /t:Publish /p:RuntimeIdentifier=win-x64 /p:Configuration=Release /p:SelfContained=true
       
     - name: Upload
       uses: actions/upload-artifact@v4
